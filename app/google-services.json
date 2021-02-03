@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "762508823494",
+    "firebase_url": "https://natureviews-colman-default-rtdb.firebaseio.com",
+    "project_id": "natureviews-colman",
+    "storage_bucket": "natureviews-colman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762508823494:android:6fe067fab4d67f630c80c7",
+        "android_client_info": {
+          "package_name": "colman.natureviews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762508823494-k82u13gr1dscar14vvnttitkn1ou24f0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "colman.natureviews",
+            "certificate_hash": "c34d0f211228bebbb0ee787db2865e61153cdf56"
+          }
+        },
+        {
+          "client_id": "762508823494-qk9efcou006059hej0hdvbl10qa27d91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoWKkIJ7UpVGAhoSdkgCLT06lnAyq9_f0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762508823494-mvspjus1tb86qj2nos8dbo4n13c14rfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
