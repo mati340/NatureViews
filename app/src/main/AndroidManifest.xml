@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NatureViews">
+        <activity android:name=".activities.HomeActivity"/>
         <activity android:name=".activities.RegisterPageActivity"/>
         <activity android:name=".activities.LoginPageActivity"/>
         <activity android:name=".MainActivity">
