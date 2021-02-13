@@ -4,32 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A4157"
-    tools:context=".fragments.ProfileFragment" >
+    android:background="#021732"
+    tools:context=".fragments.ProfileFragment">
 
+    <ImageView
+        android:id="@+id/profile_fragment_background_image_view"
+        android:layout_width="411dp"
+        android:layout_height="731dp"
+        android:alpha="0.3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/background"
+        tools:srcCompat="@drawable/background"
+        tools:visibility="visible" />
 
+    <TextView
+        android:id="@+id/profile_fragment_info_text_view"
+        android:layout_width="411dp"
+        android:layout_height="128dp"
+        android:alpha="0.8"
+        android:background="#1C323E"
+        android:padding="10dp"
+        android:text="Info info info info info info"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteY="384dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_fragment_profile_image_view"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_pic_placeholder"
+        android:visibility="visible"
+        app:srcCompat="@drawable/profile_pic_placeholder"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="93dp"
+        tools:srcCompat="@drawable/profile_pic_placeholder" />
 
     <TextView
         android:id="@+id/profile_fragment_username_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:text="username"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="328dp" />
 
     <TextView
         android:id="@+id/profile_fragment_email_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Email"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        tools:layout_editor_absoluteX="293dp"
+        tools:layout_editor_absoluteY="336dp" />
+
+    <ImageButton
+        android:id="@+id/profile_fragment_edit_profile_btn"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#214F68"
+        android:src="@drawable/ic_baseline_edit_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/profile_fragment_show_posts_btn"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:text="Show Posts"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="598dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

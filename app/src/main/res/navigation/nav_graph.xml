@@ -22,6 +22,12 @@
         <argument
             android:name="post"
             app:argType="com.colman.natureviews.model.Post" />
+        <action
+            android:id="@+id/action_postDetailsFragment_to_editPostFragment"
+            app:destination="@id/editPostFragment" />
+        <action
+            android:id="@+id/action_postDetailsFragment_to_commentListFragment"
+            app:destination="@id/commentListFragment" />
     </fragment>
     <fragment
         android:id="@+id/newPostFragment"
@@ -32,5 +38,44 @@
         android:id="@+id/profileFragment"
         android:name="com.colman.natureviews.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_userPostsFragment"
+            app:destination="@id/userPostsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.colman.natureviews.fragments.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/editPostFragment"
+        android:name="com.colman.natureviews.fragments.EditPostFragment"
+        android:label="fragment_edit_post"
+        tools:layout="@layout/fragment_edit_post" >
+        <argument
+            android:name="post"
+            app:argType="com.colman.natureviews.model.Post" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentListFragment"
+        android:name="com.colman.natureviews.fragments.CommentsListFragment"
+        android:label="fragment_comment_list"
+        tools:layout="@layout/fragment_comment_list" >
+        <argument
+            android:name="post"
+            app:argType="com.colman.natureviews.model.Post" />
+    </fragment>
+    <fragment
+        android:id="@+id/userPostsFragment"
+        android:name="com.colman.natureviews.fragments.UserPostsFragment"
+        android:label="fragment_user_posts"
+        tools:layout="@layout/fragment_user_posts" >
+        <action
+            android:id="@+id/action_userPostsFragment_to_postDetailsFragment"
+            app:destination="@id/postDetailsFragment" />
+    </fragment>
 </navigation>

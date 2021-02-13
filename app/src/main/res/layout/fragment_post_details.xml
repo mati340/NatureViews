@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A4157"
-    tools:context=".fragments.PostDetailsFragment" >
+    android:background="@color/green"
+    tools:context=".fragments.PostDetailsFragment">
 
     <ImageView
-        android:id="@+id/post_details_fragment_post_image_view5"
-        android:layout_width="0dp"
+        android:id="@+id/post_details_fragment_post_image_view"
+        android:layout_width="411dp"
         android:layout_height="275dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_details_fragment_title_text_view"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/profile_pic_placeholder"
+        tools:layout_editor_absoluteY="101dp"
         tools:srcCompat="@drawable/profile_pic_placeholder" />
 
     <TextView
@@ -23,32 +21,120 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:maxLines="3"
         android:minLines="1"
         android:singleLine="false"
-        android:text="Title "
+        android:text="Title title title title title title Title title title title title"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="61dp" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="411dp"
+        android:layout_height="45dp"
+        android:background="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/post_details_fragment_profile_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/profile_pic_placeholder" />
+
+        <TextView
+            android:id="@+id/post_details_fragment_username_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="username"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/post_details_fragment_profile_image_view"
+            app:layout_constraintStart_toEndOf="@+id/post_details_fragment_profile_image_view"
+            app:layout_constraintTop_toTopOf="@+id/post_details_fragment_profile_image_view" />
+
+        <ImageButton
+            android:id="@+id/post_details_fragment_close_btn"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="#146D95"
+            android:src="@drawable/ic_baseline_close_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/post_details_fragment_post_content_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
-        android:background="#214F68"
+        android:background="@color/grey"
         android:padding="10dp"
-        android:text="Content"
+        android:text="Content content content content content content content content content content content content content content content content content content content content content content"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_details_fragment_post_image_view5" />
+        app:layout_constraintTop_toBottomOf="@+id/post_details_fragment_post_image_view" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="228dp"
+        android:layout_height="75dp"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="588dp">
+
+        <ImageButton
+            android:id="@+id/post_details_fragment_delete_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:background="@color/grey"
+            android:src="@drawable/ic_baseline_delete_forever_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/post_details_fragment_edit_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/grey"
+            android:src="@drawable/ic_baseline_edit_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/post_details_fragment_comments_btn"
+        android:layout_width="376dp"
+        android:layout_height="53dp"
+        android:backgroundTint="#3BBFBF"
+        android:text="Comments"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="493dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
