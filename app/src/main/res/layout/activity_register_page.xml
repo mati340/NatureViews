@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#021732"
+    android:background="@color/BlueBackground"
     tools:context=".activities.RegisterPageActivity">
 
     <ImageView
@@ -22,48 +22,59 @@
         tools:srcCompat="@drawable/background"
         tools:visibility="visible" />
 
+    <ImageButton
+        android:id="@+id/register_activity_close_btn"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_baseline_close_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/register_activity_user_icon"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/register_activity_email_edit_text"
         app:layout_constraintEnd_toStartOf="@+id/register_activity_email_edit_text"
         app:layout_constraintTop_toTopOf="@+id/register_activity_email_edit_text"
-        app:srcCompat="@drawable/ic_baseline_email_24"
-        tools:ignore="VectorDrawableCompat" />
-
+        app:srcCompat="@drawable/ic_baseline_email_24" />
 
     <ImageView
         android:id="@+id/register_activity_logo_image_view"
         android:layout_width="303dp"
         android:layout_height="106dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/register_activity_background_image_view"
-        app:srcCompat="@drawable/app_logo_transperent" />
+        app:srcCompat="@drawable/logo_transparent" />
 
     <EditText
-        android:id="@+id/register_activity_username_edit_text"
+        android:id="@+id/register_activity_name_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
+        android:hint="Full Name"
+        android:inputType="textCapWords|textNoSuggestions"
         android:textColor="#FFFFFF"
         android:textColorHint="#CDCDCD"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="215dp" />
+        app:layout_constraintEnd_toEndOf="@+id/register_activity_logo_image_view"
+        app:layout_constraintStart_toStartOf="@+id/register_activity_logo_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/register_activity_profile_image_view" />
 
     <EditText
         android:id="@+id/register_activity_password_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Password"
@@ -71,41 +82,38 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#CDCDCD"
         app:layout_constraintEnd_toEndOf="@+id/register_activity_logo_image_view"
-        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="@+id/register_activity_logo_image_view"
-        app:layout_constraintTop_toBottomOf="@+id/register_activity_username_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/register_activity_name_edit_text" />
 
     <Button
         android:id="@+id/register_activity_register_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/purple_200"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/BarGreen"
         android:text="Sign Up"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/register_activity_logo_image_view"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/register_activity_logo_image_view"
         app:layout_constraintTop_toBottomOf="@+id/register_activity_email_edit_text" />
+
 
     <ImageView
         android:id="@+id/register_activity_email_icon"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/register_activity_username_edit_text"
-        app:layout_constraintEnd_toStartOf="@+id/register_activity_username_edit_text"
-        app:layout_constraintTop_toTopOf="@+id/register_activity_username_edit_text"
-        app:srcCompat="@drawable/ic_baseline_person_24"
-        tools:ignore="VectorDrawableCompat" />
+        app:layout_constraintBottom_toBottomOf="@+id/register_activity_name_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/register_activity_name_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/register_activity_name_edit_text"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
 
     <ImageView
         android:id="@+id/register_activity_password_icon"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/register_activity_password_edit_text"
         app:layout_constraintEnd_toStartOf="@+id/register_activity_password_edit_text"
         app:layout_constraintTop_toTopOf="@+id/register_activity_password_edit_text"
@@ -125,5 +133,35 @@
         app:layout_constraintStart_toStartOf="@+id/register_activity_logo_image_view"
         app:layout_constraintTop_toBottomOf="@+id/register_activity_password_edit_text" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/register_activity_profile_image_view"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="16dp"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_placeholder"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/register_activity_logo_image_view"
+        app:layout_constraintStart_toStartOf="@+id/register_activity_logo_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/register_activity_logo_image_view"
+        app:srcCompat="@drawable/profile_placeholder"
+        tools:srcCompat="@drawable/profile_placeholder" />
+
+    <ProgressBar
+        android:id="@+id/register_activity_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.8"
+        android:background="@color/ProgressBar"
+        android:hapticFeedbackEnabled="false"
+        android:padding="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

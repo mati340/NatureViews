@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#021732"
+    android:background="@color/BlueBackground"
     tools:context=".activities.LoginPageActivity">
 
     <ImageView
@@ -26,11 +26,12 @@
         android:id="@+id/login_activity_logo_image_view"
         android:layout_width="251dp"
         android:layout_height="105dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/login_activity_background_image_view"
-        app:srcCompat="@drawable/app_logo_transperent" />
+        app:srcCompat="@drawable/logo_transparent" />
 
     <EditText
         android:id="@+id/login_activity_password_edit_text"
@@ -48,59 +49,67 @@
         app:layout_constraintStart_toStartOf="@+id/login_activity_logo_image_view"
         app:layout_constraintTop_toBottomOf="@+id/login_activity_email_edit_text" />
 
-
     <Button
         android:id="@+id/login_activity_login_btn"
-        android:layout_width="251dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/green"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/BarGreen"
         android:text="Login"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintEnd_toEndOf="@+id/login_activity_logo_image_view"
+        app:layout_constraintStart_toStartOf="@+id/login_activity_logo_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/login_activity_password_edit_text" />
+
+    <TextView
+        android:id="@+id/login_activity_no_account_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account?"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_activity_register_btn"
+        app:layout_constraintEnd_toEndOf="@+id/login_activity_logo_image_view"
+        app:layout_constraintStart_toStartOf="@+id/login_activity_logo_image_view" />
 
     <TextView
         android:id="@+id/login_activity_register_btn"
-        android:layout_width="174dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="68dp"
-        android:text="REGISTER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="90dp"
+        android:text="Create new one!"
         android:textColor="@color/markerGreen"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/login_activity_background_image_view"
         app:layout_constraintEnd_toEndOf="@+id/login_activity_logo_image_view"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/login_activity_logo_image_view"
-        app:layout_constraintTop_toBottomOf="@+id/login_activity_login_btn" />
+        app:layout_constraintStart_toStartOf="@+id/login_activity_logo_image_view" />
 
     <ImageView
         android:id="@+id/login_activity_email_icon"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/login_activity_email_edit_text"
         app:layout_constraintEnd_toStartOf="@+id/login_activity_email_edit_text"
         app:layout_constraintTop_toTopOf="@+id/login_activity_email_edit_text"
-        app:srcCompat="@drawable/ic_baseline_email_24"
-        tools:ignore="VectorDrawableCompat" />
+        app:srcCompat="@drawable/ic_baseline_email_24" />
 
     <ImageView
         android:id="@+id/login_activity_password_icon"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/login_activity_password_edit_text"
         app:layout_constraintEnd_toStartOf="@+id/login_activity_password_edit_text"
         app:layout_constraintTop_toTopOf="@+id/login_activity_password_edit_text"
-        app:srcCompat="@drawable/ic_baseline_vpn_key_24"
-        tools:ignore="VectorDrawableCompat" />
+        app:srcCompat="@drawable/ic_baseline_vpn_key_24" />
 
     <EditText
         android:id="@+id/login_activity_email_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
