@@ -4,13 +4,13 @@
     <item
         android:id="@id/feedListFragment"
         android:icon="@drawable/ic_twotone_featured_play_list_24"
-        android:title="Feed" />
+        android:title="" />
     <item
         android:id="@id/newPostFragment"
         android:icon="@drawable/ic_twotone_add_box_24"
-        android:title="Post" />
+        android:title="" />
     <item
         android:id="@id/profileFragment"
         android:icon="@drawable/ic_twotone_person_outline_24"
-        android:title="Profile" />
+        android:title="" />
 </menu>

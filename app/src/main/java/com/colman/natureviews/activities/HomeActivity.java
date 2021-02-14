@@ -6,7 +6,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.colman.natureviews.R;
 import com.colman.natureviews.fragments.FeedListFragment;
