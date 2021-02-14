@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         //setting background, animation and button to login
         backgroundImageView = findViewById(R.id.main_background_image_view);
 
-        Utils.animateBackground(backgroundImageView);
+        Utils.animateBackground(backgroundImageView,3500);
 
         exploreBtn.setOnClickListener(new View.OnClickListener() {
             @Override

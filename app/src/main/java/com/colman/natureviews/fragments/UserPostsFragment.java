@@ -26,21 +26,21 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 
-public class FeedListFragment extends Fragment {
+public class UserPostsFragment extends Fragment {
 
     RecyclerView list;
     List<Post> data = new LinkedList<>();
-    FeedListAdapter adapter;
-    FeedListViewModel viewModel;
+    UserPostsAdapter adapter;
+    UserPostsViewModel viewModel;
     LiveData<List<Post>> liveData;
 
     public interface Delegate{
-        void onItemSelected(Post post);
+        void onItemSelect(Post post);
     }
 
     Delegate parent;
 
-    public FeedListFragment() {
+    public UserPostsFragment() {
     }
 
     @Override
@@ -53,7 +53,7 @@ public class FeedListFragment extends Fragment {
             throw new RuntimeException(context.toString() + " must implement Delegate");
         }
 
-        viewModel = new ViewModelProvider(this).get(FeedListViewModel.class);
+        viewModel = new ViewModelProvider(this).get(UserPostsViewModel.class);
     }
 
     @Override
@@ -68,14 +68,14 @@ public class FeedListFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         list.setLayoutManager(layoutManager);
 
-        adapter = new FeedListAdapter();
+        adapter = new UserPostsAdapter();
         list.setAdapter(adapter);
 
         adapter.setOnClickListener(new OnItemClickListener() {
             @Override
             public void onClick(int position) {
                 Post post = data.get(position);
-                parent.onItemSelected(post);
+                parent.onItemSelect(post);
             }
         });
 
@@ -167,7 +167,7 @@ public class FeedListFragment extends Fragment {
         void onClick(int position);
     }
 
-    class FeedListAdapter extends RecyclerView.Adapter<PostRowViewHolder>{
+    class UserPostsAdapter extends RecyclerView.Adapter<PostRowViewHolder>{
 
         private OnItemClickListener listener;
 

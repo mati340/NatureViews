@@ -7,6 +7,20 @@
     android:background="#021732"
     tools:context=".fragments.ProfileFragment">
 
+    <ImageView
+        android:id="@+id/profile_fragment_background_image_view"
+        android:layout_width="411dp"
+        android:layout_height="731dp"
+        android:alpha="0.3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/background"
+        tools:srcCompat="@drawable/background"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/profile_fragment_background_image_view"

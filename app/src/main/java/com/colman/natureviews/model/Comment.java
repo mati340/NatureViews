@@ -6,38 +6,34 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 
-
 @Entity
-public class Post implements Serializable {
+public class Comment implements Serializable {
     @PrimaryKey
     @NonNull
+    public String commentId;
     public String postId;
-    public String postTitle;
-    public String postContent;
-    public String postImgUrl;
+    public String commentContent;
     public String userId;
     public String userProfileImageUrl;
     public String username;
     public long lastUpdated;
 
-    public Post(){
+    public Comment() {
+        commentId = "";
         postId = "";
-        postTitle = "";
-        postContent = "";
-        postImgUrl = "";
+        commentContent = "";
         userId = "";
         userProfileImageUrl = "";
         username = "";
         lastUpdated = 0;
     }
 
-    public Post(String postId, String postTitle, String postContent, String postImgUrl, String userId, String userProfilePicUrl, String username){
+    public Comment(String commentId, String postId, String commentContent, String userId, String userProfileImageUrl, String username) {
+        this.commentId = commentId;
         this.postId = postId;
-        this.postTitle = postTitle;
-        this.postContent = postContent;
-        this.postImgUrl = postImgUrl;
+        this.commentContent = commentContent;
         this.userId = userId;
-        this.userProfileImageUrl = userProfilePicUrl;
+        this.userProfileImageUrl = userProfileImageUrl;
         this.username = username;
     }
 
@@ -50,28 +46,20 @@ public class Post implements Serializable {
         this.postId = postId;
     }
 
-    public String getPostTitle() {
-        return postTitle;
+    public String getCommentId() {
+        return commentId;
     }
 
-    public void setPostTitle(String postTitle) {
-        this.postTitle = postTitle;
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
     }
 
-    public String getPostContent() {
-        return postContent;
+    public String getCommentContent() {
+        return commentContent;
     }
 
-    public void setPostContent(String postContent) {
-        this.postContent = postContent;
-    }
-
-    public String getPostImgUrl() {
-        return postImgUrl;
-    }
-
-    public void setPostImgUrl(String postImgUrl) {
-        this.postImgUrl = postImgUrl;
+    public void setCommentContent(String commentContent) {
+        this.commentContent = commentContent;
     }
 
     public String getUserId() {
@@ -105,4 +93,5 @@ public class Post implements Serializable {
     public void setLastUpdated(long lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
+
 }

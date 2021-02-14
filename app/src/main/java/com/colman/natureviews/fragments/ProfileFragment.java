@@ -1,66 +1,99 @@
 package com.colman.natureviews.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import com.colman.natureviews.R;
+import com.colman.natureviews.Utils;
+import com.colman.natureviews.model.User;
+import com.squareup.picasso.Picasso;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
 public class ProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    TextView userUsername;
+    TextView userEmail;
+    TextView userInfo;
+    CircleImageView userProfileImage;
+    ImageButton editProfileBtn;
+    ImageView backgroundImageView;
+    Button showPostsBtn;
 
     public ProfileFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view =  inflater.inflate(R.layout.fragment_profile, container, false);
+
+        backgroundImageView = view.findViewById(R.id.profile_fragment_background_image_view);
+        userUsername = view.findViewById(R.id.profile_fragment_username_text_view);
+        userEmail = view.findViewById(R.id.profile_fragment_email_text_view);
+        userInfo = view.findViewById(R.id.profile_fragment_info_text_view);
+        userProfileImage = view.findViewById(R.id.profile_fragment_profile_image_view);
+
+        editProfileBtn = view.findViewById(R.id.profile_fragment_edit_profile_btn);
+        editProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toEditProfilePage();
+            }
+        });
+
+        showPostsBtn = view.findViewById(R.id.profile_fragment_show_posts_btn);
+        showPostsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toUserPostsPage();
+            }
+        });
+
+        Utils.animateBackground(backgroundImageView, 30000);
+        setUserProfile();
+        return view;
     }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+    }
+
+    private void toEditProfilePage() {
+        NavController navCtrl = Navigation.findNavController(getActivity(), R.id.home_nav_host);
+        NavDirections directions = ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment();
+        navCtrl.navigate(directions);
+    }
+
+    private void toUserPostsPage() {
+        NavController navCtrl = Navigation.findNavController(getActivity(), R.id.home_nav_host);
+        NavDirections directions = ProfileFragmentDirections.actionProfileFragmentToUserPostsFragment();
+        navCtrl.navigate(directions);
+    }
+
+    public void setUserProfile(){
+        userUsername.setText(User.getInstance().userUsername);
+        userEmail.setText(User.getInstance().userEmail);
+        userInfo.setText(User.getInstance().userInfo);
+
+        if (User.getInstance().profileImageUrl != null){
+            Picasso.get().load(User.getInstance().profileImageUrl).noPlaceholder().into(userProfileImage);
+        }
+    }
+
 }
