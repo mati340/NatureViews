@@ -27,7 +27,7 @@ public class PostDetailsFragment extends Fragment {
     Post post;
     View view;
     TextView postTitle;
-    TextView username;
+    TextView name;
     TextView postContent;
     Button comments;
     ImageView postImg;
@@ -45,8 +45,8 @@ public class PostDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_post_details, container, false);
-        postTitle = view.findViewById(R.id.post_details_fragment_title_text_view);
-        username = view.findViewById(R.id.post_details_fragment_username_text_view);
+        postTitle = view.findViewById(R.id.post_details_fragment_post_title_text_view);
+        name = view.findViewById(R.id.post_details_fragment_name_text_view);
         postContent = view.findViewById(R.id.post_details_fragment_post_content_text_view);
         comments = view.findViewById(R.id.post_details_fragment_comments_btn);
         postImg = view.findViewById(R.id.post_details_fragment_post_image_view);
@@ -55,16 +55,17 @@ public class PostDetailsFragment extends Fragment {
         post = PostDetailsFragmentArgs.fromBundle(getArguments()).getPost();
         if (post != null) {
             postTitle.setText(post.postTitle);
-            username.setText(post.username);
+            name.setText(post.name);
             postContent.setText(post.postContent);
             if (post.postImgUrl != null && post.userProfileImageUrl != null){
                 Picasso.get().load(post.postImgUrl).noPlaceholder().into(postImg);
                 Picasso.get().load(post.userProfileImageUrl).noPlaceholder().into(profilePic);
             }
             else {
-                postImg.setImageResource(R.drawable.profile_pic_placeholder);
-                profilePic.setImageResource(R.drawable.profile_pic_placeholder);
+                postImg.setImageResource(R.drawable.profile_placeholder);
+                profilePic.setImageResource(R.drawable.profile_placeholder);
             }
+
 
             comments.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -121,6 +122,7 @@ public class PostDetailsFragment extends Fragment {
         PostDetailsFragmentDirections.ActionPostDetailsFragmentToCommentListFragment directions = PostDetailsFragmentDirections.actionPostDetailsFragmentToCommentListFragment(post);
         navCtrl.navigate(directions);
     }
+
 
     void deletePost(Post postToDelete){
 

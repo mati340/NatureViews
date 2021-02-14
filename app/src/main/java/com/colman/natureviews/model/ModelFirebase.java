@@ -50,7 +50,7 @@ public class ModelFirebase {
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    Toast.makeText(NatureViewsApplication.context, "Welcome!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NatureViewsApplication.context, "Login Succeeded!", Toast.LENGTH_SHORT).show();
                     setUserAppData(email);
                     listener.onComplete();
                 }
@@ -67,7 +67,7 @@ public class ModelFirebase {
         }
     }
 
-    public static void registerUserAccount(final String username, String password, final String email, final Uri imageUri, final Listener<Boolean> listener){
+    public static void registerUserAccount(final String name, String password, final String email, final Uri imageUri, final Listener<Boolean> listener){
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
@@ -75,7 +75,7 @@ public class ModelFirebase {
             firebaseAuth.signOut();
         }
         if (firebaseAuth.getCurrentUser() == null &&
-                username != null && !username.equals("") &&
+                name != null && !name.equals("") &&
                 password != null && !password.equals("") &&
                 email != null && !email.equals("") &&
                 imageUri != null){
@@ -83,13 +83,13 @@ public class ModelFirebase {
                 @Override
                 public void onSuccess(AuthResult authResult) {
                     Toast.makeText(NatureViewsApplication.context, "User registered", Toast.LENGTH_SHORT).show();
-                    uploadUserData(username, email, imageUri);
+                    uploadUserData(name, email, imageUri);
                     listener.onComplete();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(NatureViewsApplication.context, "Failed registering user", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NatureViewsApplication.context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     listener.onFail();
                 }
             });
@@ -100,14 +100,14 @@ public class ModelFirebase {
         }
     }
 
-    private static void uploadUserData(final String username, final String email, Uri imageUri){
+    private static void uploadUserData(final String name, final String email, Uri imageUri){
 
         final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         StorageReference storageReference = FirebaseStorage.getInstance().getReference("images");
 
         if (imageUri != null){
-            String imageName = username + "." + getExtension(imageUri);
+            String imageName = name + "." + getExtension(imageUri);
             final StorageReference imageRef = storageReference.child(imageName);
 
             UploadTask uploadTask = imageRef.putFile(imageUri);
@@ -126,7 +126,7 @@ public class ModelFirebase {
 
                         Map<String, Object> data = new HashMap<>();
                         data.put("profileImageUrl", task.getResult().toString());
-                        data.put("username", username);
+                        data.put("name", name);
                         data.put("email", email);
                         data.put("info", "I'm New Here !");
                         firebaseFirestore.collection("userProfileData").document(email).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -254,7 +254,7 @@ public class ModelFirebase {
         newComment.commentContent = (String) json.get("commentContent");
         newComment.userId = (String) json.get("userId");
         newComment.userProfileImageUrl = (String) json.get("userProfileImageUrl");
-        newComment.username = (String) json.get("username");
+        newComment.name = (String) json.get("name");
 
         Timestamp ts = (Timestamp)json.get("lastUpdated");
         if (ts != null)
@@ -269,7 +269,7 @@ public class ModelFirebase {
         json.put("commentContent", comment.commentContent);
         json.put("userId", comment.userId);
         json.put("userProfileImageUrl", comment.userProfileImageUrl);
-        json.put("username", comment.username);
+        json.put("name", comment.name);
         json.put("lastUpdated", FieldValue.serverTimestamp());
         return json;
     }
@@ -372,7 +372,7 @@ public class ModelFirebase {
         newPost.postImgUrl = (String) json.get("postImgUrl");
         newPost.userId = (String) json.get("userId");
         newPost.userProfileImageUrl = (String) json.get("userProfilePicUrl");
-        newPost.username = (String) json.get("username");
+        newPost.name = (String) json.get("name");
         Timestamp ts = (Timestamp)json.get("lastUpdated");
         if (ts != null)
             newPost.lastUpdated = ts.getSeconds();
@@ -387,17 +387,17 @@ public class ModelFirebase {
         json.put("postImgUrl", post.postImgUrl);
         json.put("userId", post.userId);
         json.put("userProfilePicUrl", post.userProfileImageUrl);
-        json.put("username", post.username);
+        json.put("name", post.name);
         json.put("lastUpdated", FieldValue.serverTimestamp());
         return json;
     }
 
-    public static void updateUserProfile(String username, String info, String profileImgUrl, final Model.Listener<Boolean> listener) {
+    public static void updateUserProfile(String name, String info, String profileImgUrl, final Model.Listener<Boolean> listener) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> json = new HashMap<>();
-        if (username != null)
-            json.put("username", username);
-        else json.put("username", User.getInstance().userUsername);
+        if (name != null)
+            json.put("name", name);
+        else json.put("name", User.getInstance().name);
         if (info != null)
             json.put("info", info);
         else json.put("info", User.getInstance().userInfo);
@@ -422,7 +422,7 @@ public class ModelFirebase {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
-                    User.getInstance().userUsername = (String) task.getResult().get("username");
+                    User.getInstance().name = (String) task.getResult().get("name");
                     User.getInstance().profileImageUrl = (String) task.getResult().get("profileImageUrl");
                     User.getInstance().userInfo = (String) task.getResult().get("info");
                     User.getInstance().userEmail = email;

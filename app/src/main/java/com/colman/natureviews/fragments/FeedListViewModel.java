@@ -8,16 +8,18 @@ import java.util.List;
 
 
 
-public class FeedListViewModel extends ViewModel {
+public class FeedListViewModel extends PostsListViewModel {
     LiveData<List<Post>> liveData;
 
-    public LiveData<List<Post>> getData(){
+    @Override
+    public LiveData<List<Post>> getData() {
         if (liveData == null)
             liveData = Model.instance.getAllPosts();
         return liveData;
     }
 
-    public void refresh(Model.CompListener listener){
+    @Override
+    public void refresh(Model.CompListener listener) {
         Model.instance.refreshPostsList(listener);
     }
 }

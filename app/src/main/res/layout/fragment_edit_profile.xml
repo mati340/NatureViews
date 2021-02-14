@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/BlueBackground"
     tools:context=".fragments.EditProfileFragment">
 
     <ImageView
@@ -14,10 +14,12 @@
         android:alpha="0.3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/background"
+        tools:srcCompat="@drawable/background"
         tools:visibility="visible" />
 
     <ImageButton
@@ -32,60 +34,79 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_profile_fragment_username_edit_text"
+        android:id="@+id/edit_profile_fragment_name_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Full name"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#CDCDCD"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="264dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_fragment_profile_image_view" />
 
     <Button
         android:id="@+id/edit_profile_fragment_save_btn"
-        android:layout_width="363dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#3BBFBF"
-        android:text="Save"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/BarGreen"
+        android:text="Save Changes"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="404dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_fragment_info_edit_text" />
 
     <EditText
         android:id="@+id/edit_profile_fragment_info_edit_text"
-        android:layout_width="363dp"
+        android:layout_width="0dp"
         android:layout_height="71dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:alpha="0.8"
-        android:background="#1C323E"
+        android:background="@color/textBack"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Write your profile info here..."
+        android:hint="Profile info"
         android:inputType="textMultiLine"
         android:padding="6dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#CDCDCD"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="325dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_fragment_name_edit_text" />
 
     <ImageView
         android:id="@+id/edit_profile_fragment_email_icon"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        app:srcCompat="@drawable/ic_baseline_person_24"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="269dp" />
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_profile_fragment_name_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/edit_profile_fragment_name_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/edit_profile_fragment_name_edit_text"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/edit_profile_fragment_profile_image_view"
         android:layout_width="250dp"
         android:layout_height="224dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
         android:padding="2dp"
-        android:src="@drawable/profile_pic_placeholder"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="24dp" />
+        android:src="@drawable/profile_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edit_profile_fragment_background_image_view" />
 
     <ProgressBar
         android:id="@+id/edit_profile_fragment_progress_bar"
@@ -93,11 +114,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.8"
-        android:background="#1A4157"
+        android:background="@color/ProgressBar"
         android:hapticFeedbackEnabled="false"
         android:padding="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

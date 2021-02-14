@@ -9,6 +9,8 @@ import androidx.lifecycle.LiveData;
 import com.colman.natureviews.NatureViewsApplication;
 import java.util.List;
 
+
+
 public class Model {
 
     public static final com.colman.natureviews.model.Model instance = new com.colman.natureviews.model.Model();
@@ -210,8 +212,8 @@ public class Model {
         return liveData;
     }
 
-    public void updateUserProfile(String username, String info, String profileImgUrl, Listener<Boolean> listener) {
-        ModelFirebase.updateUserProfile(username, info, profileImgUrl, listener);
+    public void updateUserProfile(String name, String info, String profileImgUrl, Listener<Boolean> listener) {
+        ModelFirebase.updateUserProfile(name, info, profileImgUrl, listener);
     }
 
     public void setUserAppData(String email){

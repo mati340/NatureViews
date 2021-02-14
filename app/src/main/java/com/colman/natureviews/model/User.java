@@ -5,7 +5,7 @@ public class User {
 
     private static User theUser = null;
 
-    public String userUsername;
+    public String name;
     public String userEmail;
     public String profileImageUrl;
     public String userId;
@@ -14,7 +14,7 @@ public class User {
     private User()
     {
         userEmail = null;
-        userUsername = null;
+        name = null;
         profileImageUrl = null;
         userId = null;
         userInfo = null;

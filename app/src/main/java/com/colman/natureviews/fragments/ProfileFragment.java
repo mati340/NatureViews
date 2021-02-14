@@ -24,7 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileFragment extends Fragment {
 
-    TextView userUsername;
+    TextView userName;
     TextView userEmail;
     TextView userInfo;
     CircleImageView userProfileImage;
@@ -43,7 +43,7 @@ public class ProfileFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
 
         backgroundImageView = view.findViewById(R.id.profile_fragment_background_image_view);
-        userUsername = view.findViewById(R.id.profile_fragment_username_text_view);
+        userName = view.findViewById(R.id.profile_fragment_name_text_view);
         userEmail = view.findViewById(R.id.profile_fragment_email_text_view);
         userInfo = view.findViewById(R.id.profile_fragment_info_text_view);
         userProfileImage = view.findViewById(R.id.profile_fragment_profile_image_view);
@@ -60,7 +60,7 @@ public class ProfileFragment extends Fragment {
         showPostsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toUserPostsPage();
+                toPostsListPage();
             }
         });
 
@@ -80,14 +80,14 @@ public class ProfileFragment extends Fragment {
         navCtrl.navigate(directions);
     }
 
-    private void toUserPostsPage() {
+    private void toPostsListPage() {
         NavController navCtrl = Navigation.findNavController(getActivity(), R.id.home_nav_host);
-        NavDirections directions = ProfileFragmentDirections.actionProfileFragmentToUserPostsFragment();
+        ProfileFragmentDirections.ActionProfileFragmentToFeedListFragment directions = ProfileFragmentDirections.actionProfileFragmentToFeedListFragment().setListFor("User");
         navCtrl.navigate(directions);
     }
 
     public void setUserProfile(){
-        userUsername.setText(User.getInstance().userUsername);
+        userName.setText(User.getInstance().name);
         userEmail.setText(User.getInstance().userEmail);
         userInfo.setText(User.getInstance().userInfo);
 

@@ -15,7 +15,7 @@ public class Comment implements Serializable {
     public String commentContent;
     public String userId;
     public String userProfileImageUrl;
-    public String username;
+    public String name;
     public long lastUpdated;
 
     public Comment() {
@@ -24,18 +24,18 @@ public class Comment implements Serializable {
         commentContent = "";
         userId = "";
         userProfileImageUrl = "";
-        username = "";
+        name = "";
         lastUpdated = 0;
     }
 
-    public Comment(String commentId, String postId, String commentContent, String userId, String userProfileImageUrl, String username) {
+/*    public Comment(String commentId, String postId, String commentContent, String userId, String userProfileImageUrl, String username) {
         this.commentId = commentId;
         this.postId = postId;
         this.commentContent = commentContent;
         this.userId = userId;
         this.userProfileImageUrl = userProfileImageUrl;
         this.username = username;
-    }
+    }*/
 
     @NonNull
     public String getPostId() {
@@ -78,12 +78,12 @@ public class Comment implements Serializable {
         this.userProfileImageUrl = userProfileImageUrl;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public long getLastUpdated() {

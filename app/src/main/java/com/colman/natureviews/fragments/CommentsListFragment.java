@@ -144,7 +144,7 @@ public class CommentsListFragment extends Fragment {
         newComment.postId = post.postId;
         newComment.userId = User.getInstance().userId;
         newComment.userProfileImageUrl = User.getInstance().profileImageUrl;
-        newComment.username = User.getInstance().userUsername;
+        newComment.name = User.getInstance().name;
         newComment.commentContent = commentContent;
         return newComment;
     }
@@ -159,7 +159,7 @@ public class CommentsListFragment extends Fragment {
 
     static class CommentRowViewHolder extends RecyclerView.ViewHolder {
 
-        TextView username;
+        TextView name;
         TextView commentContent;
         CircleImageView userProfileImageView;
         ImageButton deleteCommentBtn;
@@ -169,7 +169,7 @@ public class CommentsListFragment extends Fragment {
         public CommentRowViewHolder(@NonNull final View itemView) {
             super(itemView);
 
-            username = itemView.findViewById(R.id.row_comments_username_text_view);
+            name = itemView.findViewById(R.id.row_comments_name_text_view);
             commentContent = itemView.findViewById(R.id.row_comments_content_text_view);
             userProfileImageView = itemView.findViewById(R.id.row_comments_profile_image_view);
 
@@ -194,14 +194,14 @@ public class CommentsListFragment extends Fragment {
 
         public void bind(Comment commentToBind){
             comment = commentToBind;
-            username.setText(commentToBind.username);
+            name.setText(commentToBind.name);
             commentContent.setText(commentToBind.commentContent);
 
             if (commentToBind.userProfileImageUrl != null){
                 Picasso.get().load(commentToBind.userProfileImageUrl).noPlaceholder().into(userProfileImageView);
             }
             else {
-                userProfileImageView.setImageResource(R.drawable.profile_pic_placeholder);
+                userProfileImageView.setImageResource(R.drawable.profile_placeholder);
             }
 
             if (comment.userId.equals(User.getInstance().userId)){

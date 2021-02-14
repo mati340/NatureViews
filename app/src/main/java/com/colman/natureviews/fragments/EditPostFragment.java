@@ -28,6 +28,8 @@ import com.colman.natureviews.model.StoreModel;
 import com.squareup.picasso.Picasso;
 import java.io.FileDescriptor;
 import java.io.IOException;
+import static android.app.Activity.RESULT_OK;
+
 
 
 
@@ -173,7 +175,7 @@ public class EditPostFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(data.getData() != null && data != null){
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null){
             postImageUri = data.getData();
             postImageView.setImageURI(postImageUri);
             postImgBitmap = uriToBitmap(postImageUri);

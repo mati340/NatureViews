@@ -20,7 +20,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RegisterPageActivity extends AppCompatActivity {
 
     ImageView backgroundImageView;
-    EditText usernameInput;
+    EditText nameInput;
     EditText passwordInput;
     EditText emailInput;
     Button registerBtn;
@@ -34,7 +34,9 @@ public class RegisterPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
 
-        usernameInput = findViewById(R.id.register_activity_username_edit_text);
+        this.setTitle("Sign Up");
+
+        nameInput = findViewById(R.id.register_activity_name_edit_text);
         passwordInput = findViewById(R.id.register_activity_password_edit_text);
         emailInput = findViewById(R.id.register_activity_email_edit_text);
         profileImageView = findViewById(R.id.register_activity_profile_image_view);
@@ -57,7 +59,7 @@ public class RegisterPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                ModelFirebase.registerUserAccount(usernameInput.getText().toString(), passwordInput.getText().toString(), emailInput.getText().toString(), profileImageUri, new ModelFirebase.Listener<Boolean>() {
+                ModelFirebase.registerUserAccount(nameInput.getText().toString(), passwordInput.getText().toString(), emailInput.getText().toString(), profileImageUri, new ModelFirebase.Listener<Boolean>() {
                     @Override
                     public void onComplete() {
                         progressBar.setVisibility(View.INVISIBLE);
