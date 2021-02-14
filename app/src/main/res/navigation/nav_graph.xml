@@ -9,7 +9,7 @@
         android:id="@+id/feedListFragment"
         android:name="com.colman.natureviews.fragments.FeedListFragment"
         android:label="Feed"
-        tools:layout="@layout/fragment_feed_list" >
+        tools:layout="@layout/fragment_feed_list">
         <action
             android:id="@+id/action_feedListFragment_to_postDetailsFragment"
             app:destination="@id/postDetailsFragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/postDetailsFragment"
         android:name="com.colman.natureviews.fragments.PostDetailsFragment"
         android:label="Post Details"
-        tools:layout="@layout/fragment_post_details" >
+        tools:layout="@layout/fragment_post_details">
         <argument
             android:name="post"
             app:argType="com.colman.natureviews.model.Post" />
@@ -33,7 +33,11 @@
         android:id="@+id/newPostFragment"
         android:name="com.colman.natureviews.fragments.NewPostFragment"
         android:label="fragment_new_post"
-        tools:layout="@layout/fragment_new_post" />
+        tools:layout="@layout/fragment_new_post" >
+        <action
+            android:id="@+id/action_newPostFragment_to_postDetailsFragment"
+            app:destination="@id/postDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.colman.natureviews.fragments.ProfileFragment"
