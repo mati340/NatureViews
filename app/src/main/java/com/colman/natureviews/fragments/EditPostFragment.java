@@ -38,7 +38,6 @@ public class EditPostFragment extends Fragment {
     View view;
     Post post;
     EditText titleInput;
-    EditText contentInput;
     Button saveChangesBtn;
     ImageButton closeBtn;
     ImageView postImageView;
@@ -59,7 +58,6 @@ public class EditPostFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_edit_post, container, false);
 
         titleInput = view.findViewById(R.id.edit_post_fragment_title_edit_text);
-        contentInput = view.findViewById(R.id.edit_post_fragment_content_edit_text);
         postImageView = view.findViewById(R.id.edit_post_fragment_image_view);
         progressBar = view.findViewById(R.id.edit_post_fragment_progress_bar);
         progressBar.setVisibility(View.INVISIBLE);
@@ -101,7 +99,6 @@ public class EditPostFragment extends Fragment {
             Picasso.get().load(post.postImgUrl).noPlaceholder().into(postImageView);
         }
         titleInput.setText(post.postTitle);
-        contentInput.setText(post.postContent);
     }
 
     void updatePost() {
@@ -149,9 +146,6 @@ public class EditPostFragment extends Fragment {
         if (titleInput.getText().toString() != null && !titleInput.getText().toString().equals(""))
             editedPost.postTitle = titleInput.getText().toString();
         else editedPost.postTitle = post.postTitle;
-        if (contentInput.getText().toString() != null && !contentInput.getText().toString().equals(""))
-            editedPost.postContent = contentInput.getText().toString();
-        else editedPost.postContent = post.postContent;
         if (imageUrl != null)
             editedPost.postImgUrl = imageUrl;
 

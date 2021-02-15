@@ -95,7 +95,7 @@
             android:maxLines="3"
             android:minLines="1"
             android:singleLine="false"
-            android:text="Post Title - Post Title - Post Title - Post Title - Post Title"
+            android:text="Post Comment"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="14sp"

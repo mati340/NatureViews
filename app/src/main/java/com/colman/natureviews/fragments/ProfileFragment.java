@@ -1,6 +1,6 @@
 package com.colman.natureviews.fragments;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +9,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import com.colman.natureviews.R;
 import com.colman.natureviews.Utils;
+import com.colman.natureviews.activities.LoginPageActivity;
 import com.colman.natureviews.model.User;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -31,6 +32,7 @@ public class ProfileFragment extends Fragment {
     ImageButton editProfileBtn;
     ImageView backgroundImageView;
     Button showPostsBtn;
+    Button logoutBtn;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -64,15 +66,20 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        logoutBtn = view.findViewById(R.id.profile_fragment_logout_btn);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toLoginPage();
+            }
+        });
+
         Utils.animateBackground(backgroundImageView, 30000);
         setUserProfile();
         return view;
+
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-    }
 
     private void toEditProfilePage() {
         NavController navCtrl = Navigation.findNavController(getActivity(), R.id.home_nav_host);
@@ -84,6 +91,11 @@ public class ProfileFragment extends Fragment {
         NavController navCtrl = Navigation.findNavController(getActivity(), R.id.home_nav_host);
         ProfileFragmentDirections.ActionProfileFragmentToFeedListFragment directions = ProfileFragmentDirections.actionProfileFragmentToFeedListFragment().setListFor("User");
         navCtrl.navigate(directions);
+    }
+
+    private void toLoginPage() {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(this.getActivity(), LoginPageActivity.class));
     }
 
     public void setUserProfile(){

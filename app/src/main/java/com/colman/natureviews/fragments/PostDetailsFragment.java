@@ -28,12 +28,13 @@ public class PostDetailsFragment extends Fragment {
     View view;
     TextView postTitle;
     TextView name;
-    TextView postContent;
     Button comments;
     ImageView postImg;
     ImageButton closeBtn;
     ImageButton editPostBtn;
+    TextView editPostText;
     ImageButton deletePostBtn;
+    TextView deletePostText;
     CircleImageView profilePic;
 
     public PostDetailsFragment() {
@@ -47,7 +48,6 @@ public class PostDetailsFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_post_details, container, false);
         postTitle = view.findViewById(R.id.post_details_fragment_post_title_text_view);
         name = view.findViewById(R.id.post_details_fragment_name_text_view);
-        postContent = view.findViewById(R.id.post_details_fragment_post_content_text_view);
         comments = view.findViewById(R.id.post_details_fragment_comments_btn);
         postImg = view.findViewById(R.id.post_details_fragment_post_image_view);
         profilePic = view.findViewById(R.id.post_details_fragment_profile_image_view);
@@ -56,7 +56,6 @@ public class PostDetailsFragment extends Fragment {
         if (post != null) {
             postTitle.setText(post.postTitle);
             name.setText(post.name);
-            postContent.setText(post.postContent);
             if (post.postImgUrl != null && post.userProfileImageUrl != null){
                 Picasso.get().load(post.postImgUrl).noPlaceholder().into(postImg);
                 Picasso.get().load(post.userProfileImageUrl).noPlaceholder().into(profilePic);
@@ -87,10 +86,15 @@ public class PostDetailsFragment extends Fragment {
             editPostBtn.setVisibility(View.INVISIBLE);
             deletePostBtn = view.findViewById(R.id.post_details_fragment_delete_btn);
             deletePostBtn.setVisibility(View.INVISIBLE);
+            editPostText = view.findViewById(R.id.post_details_fragment_edit_text_view);
+            editPostText.setVisibility(View.INVISIBLE);
+            deletePostText = view.findViewById(R.id.post_details_fragment_delete_text_view);
+            deletePostText.setVisibility(View.INVISIBLE);
 
             if (post.userId.equals(User.getInstance().userId)) {
 
                 editPostBtn.setVisibility(View.VISIBLE);
+                editPostText.setVisibility(View.VISIBLE);
                 editPostBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -99,6 +103,7 @@ public class PostDetailsFragment extends Fragment {
                 });
 
                 deletePostBtn.setVisibility(View.VISIBLE);
+                deletePostText.setVisibility(View.VISIBLE);
                 deletePostBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
