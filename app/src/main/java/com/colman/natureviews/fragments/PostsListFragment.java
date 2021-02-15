@@ -124,7 +124,7 @@ public class PostsListFragment extends Fragment {
 
     static class PostRowViewHolder extends RecyclerView.ViewHolder {
 
-        TextView postTitle;
+        TextView postDescription;
         ImageView postImg;
         TextView name;
         TextView name2;
@@ -134,7 +134,7 @@ public class PostsListFragment extends Fragment {
 
         public PostRowViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
-            postTitle = itemView.findViewById(R.id.row_post_title_text_view);
+            postDescription = itemView.findViewById(R.id.row_post_description_text_view);
             postImg = itemView.findViewById(R.id.row_post_image_view);
             name = itemView.findViewById(R.id.row_name_text_view);
             name2 = itemView.findViewById(R.id.row_name_text_view2);
@@ -154,7 +154,7 @@ public class PostsListFragment extends Fragment {
         }
 
         public void bind(Post postToBind){
-            postTitle.setText(postToBind.postTitle);
+            postDescription.setText(postToBind.postDescription);
             name.setText(postToBind.name);
             name2.setText(postToBind.name);
             post = postToBind;
@@ -184,7 +184,7 @@ public class PostsListFragment extends Fragment {
         @NonNull
         @Override
         public PostRowViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(getActivity()).inflate(R.layout.list_row, parent, false);
+            View view = LayoutInflater.from(getActivity()).inflate(R.layout.list_posts_row, parent, false);
             PostRowViewHolder postRowViewHolder = new PostRowViewHolder(view, listener);
             return postRowViewHolder;
         }

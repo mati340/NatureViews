@@ -31,13 +31,11 @@ import java.io.IOException;
 import static android.app.Activity.RESULT_OK;
 
 
-
-
 public class EditPostFragment extends Fragment {
 
     View view;
     Post post;
-    EditText titleInput;
+    EditText descriptionInput;
     Button saveChangesBtn;
     ImageButton closeBtn;
     ImageView postImageView;
@@ -57,7 +55,7 @@ public class EditPostFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_edit_post, container, false);
 
-        titleInput = view.findViewById(R.id.edit_post_fragment_title_edit_text);
+        descriptionInput = view.findViewById(R.id.edit_post_fragment_description_edit_text);
         postImageView = view.findViewById(R.id.edit_post_fragment_image_view);
         progressBar = view.findViewById(R.id.edit_post_fragment_progress_bar);
         progressBar.setVisibility(View.INVISIBLE);
@@ -98,7 +96,7 @@ public class EditPostFragment extends Fragment {
         if (post.postImgUrl != null) {
             Picasso.get().load(post.postImgUrl).noPlaceholder().into(postImageView);
         }
-        titleInput.setText(post.postTitle);
+        descriptionInput.setText(post.postDescription);
     }
 
     void updatePost() {
@@ -143,9 +141,9 @@ public class EditPostFragment extends Fragment {
     private Post generatedEditedPost(String imageUrl) {
 
         Post editedPost = post;
-        if (titleInput.getText().toString() != null && !titleInput.getText().toString().equals(""))
-            editedPost.postTitle = titleInput.getText().toString();
-        else editedPost.postTitle = post.postTitle;
+        if (descriptionInput.getText().toString() != null && !descriptionInput.getText().toString().equals(""))
+            editedPost.postDescription = descriptionInput.getText().toString();
+        else editedPost.postDescription = post.postDescription;
         if (imageUrl != null)
             editedPost.postImgUrl = imageUrl;
 

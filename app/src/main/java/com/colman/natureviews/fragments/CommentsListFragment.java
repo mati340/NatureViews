@@ -77,6 +77,10 @@ public class CommentsListFragment extends Fragment {
             adapter = new CommentsListAdapter();
             list.setAdapter(adapter);
 
+            viewModel.refresh(post.postId, new Model.CompListener() {
+                @Override
+                public void onComplete() {  }
+            });
             liveData = viewModel.getDataPerPost(post.postId);
             liveData.observe(getViewLifecycleOwner(), new Observer<List<Comment>>() {
                 @Override
