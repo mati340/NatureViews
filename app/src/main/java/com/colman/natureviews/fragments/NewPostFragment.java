@@ -37,7 +37,6 @@ public class NewPostFragment extends Fragment {
     View view;
     ProgressBar progressBar;
     EditText postTitleInput;
-    EditText postContentInput;
     ImageView postImageView;
     Uri postImgUri;
     Bitmap postImgBitmap;
@@ -57,7 +56,6 @@ public class NewPostFragment extends Fragment {
         progressBar.setVisibility(View.INVISIBLE);
         postImageView = view.findViewById(R.id.new_post_fragment_image_view);
         postTitleInput = view.findViewById(R.id.new_post_fragment_title_edit_text);
-        postContentInput = view.findViewById(R.id.new_post_fragment_content_edit_text);
 
         postImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +68,7 @@ public class NewPostFragment extends Fragment {
         publishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (postImgUri != null && postTitleInput != null && postContentInput != null)
+                if (postImgUri != null && postTitleInput != null )
                     savePost();
                 else
                     Toast.makeText(getContext(), "Please fill all fields and add a photo", Toast.LENGTH_SHORT).show();
@@ -134,7 +132,6 @@ public class NewPostFragment extends Fragment {
         Post newPost = new Post();
         newPost.postId = UUID.randomUUID().toString();
         newPost.postTitle = postTitleInput.getText().toString();
-        newPost.postContent = postContentInput.getText().toString();
         newPost.postImgUrl = null;
         newPost.userId = User.getInstance().userId;
         newPost.userProfileImageUrl = User.getInstance().profileImageUrl;

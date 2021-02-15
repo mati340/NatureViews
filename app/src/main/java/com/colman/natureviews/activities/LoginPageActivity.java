@@ -6,14 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.colman.natureviews.R;
 import com.colman.natureviews.Utils;
 import com.colman.natureviews.model.ModelFirebase;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPageActivity extends AppCompatActivity {
 
@@ -23,15 +21,18 @@ public class LoginPageActivity extends AppCompatActivity {
     Button loginBtn;
     TextView registerBtn;
     FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_page);
-
         firebaseAuth = FirebaseAuth.getInstance();
 
+        if (firebaseAuth.getCurrentUser() != null) {
+            ModelFirebase.setUserAppData(firebaseAuth.getCurrentUser().getEmail());
+            startActivity(new Intent(LoginPageActivity.this, HomeActivity.class));
+            finish();
+        }
+        setContentView(R.layout.activity_login_page);
 
         this.setTitle("Login");
 

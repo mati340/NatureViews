@@ -43,8 +43,8 @@
         android:layout_marginEnd="24dp"
         android:background="@color/textBack"
         android:ems="10"
-        android:hint="Post Title"
-        android:inputType="textPersonName"
+        android:hint="Post Description"
+        android:inputType="textCapSentences|textNoSuggestions"
         android:padding="6dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#CDCDCD"
@@ -53,27 +53,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_post_fragment_header_text_view" />
-
-    <EditText
-        android:id="@+id/edit_post_fragment_content_edit_text"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/textBack"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Post Details"
-        android:inputType="textMultiLine"
-        android:padding="6dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CDCDCD"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_post_fragment_title_edit_text" />
 
     <Button
         android:id="@+id/edit_post_fragment_save_changes_btn"
@@ -102,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_post_fragment_content_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_post_fragment_title_edit_text" />
 
     <ImageButton
         android:id="@+id/edit_post_fragment_close_btn"

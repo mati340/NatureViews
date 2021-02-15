@@ -97,7 +97,7 @@
             android:maxLines="3"
             android:minLines="1"
             android:singleLine="false"
-            android:text="Title title title title title title Title title title"
+            android:text="Post Description - Post Description - Post Description"
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textSize="18sp"

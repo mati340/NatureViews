@@ -368,7 +368,6 @@ public class ModelFirebase {
         Post newPost = new Post();
         newPost.postId = (String) json.get("postId");
         newPost.postTitle = (String) json.get("postTitle");
-        newPost.postContent = (String) json.get("postContent");
         newPost.postImgUrl = (String) json.get("postImgUrl");
         newPost.userId = (String) json.get("userId");
         newPost.userProfileImageUrl = (String) json.get("userProfilePicUrl");
@@ -383,7 +382,6 @@ public class ModelFirebase {
         HashMap<String, Object> json = new HashMap<>();
         json.put("postId", post.postId);
         json.put("postTitle", post.postTitle);
-        json.put("postContent", post.postContent);
         json.put("postImgUrl", post.postImgUrl);
         json.put("userId", post.userId);
         json.put("userProfilePicUrl", post.userProfileImageUrl);
