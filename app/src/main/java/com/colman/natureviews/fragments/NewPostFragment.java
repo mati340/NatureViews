@@ -120,7 +120,7 @@ public class NewPostFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(data.getData() != null && data != null && resultCode == RESULT_OK) {
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null) {
             postImgUri = data.getData();
             postImageView.setImageURI(postImgUri);
             postImgBitmap = uriToBitmap(postImgUri);
@@ -138,7 +138,7 @@ public class NewPostFragment extends Fragment {
         newPost.postImgUrl = null;
         newPost.userId = User.getInstance().userId;
         newPost.userProfileImageUrl = User.getInstance().profileImageUrl;
-        newPost.username = User.getInstance().userUsername;
+        newPost.name = User.getInstance().name;
         return newPost;
     }
 

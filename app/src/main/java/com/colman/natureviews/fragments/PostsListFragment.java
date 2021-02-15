@@ -26,21 +26,21 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 
-public class UserPostsFragment extends Fragment {
+public class PostsListFragment extends Fragment {
 
     RecyclerView list;
     List<Post> data = new LinkedList<>();
-    UserPostsAdapter adapter;
-    UserPostsViewModel viewModel;
+    PostsListAdapter adapter;
+    PostsListViewModel viewModel;
     LiveData<List<Post>> liveData;
 
     public interface Delegate{
-        void onItemSelect(Post post);
+        void onItemSelected(Post post);
     }
 
     Delegate parent;
 
-    public UserPostsFragment() {
+    public PostsListFragment() {
     }
 
     @Override
@@ -53,14 +53,17 @@ public class UserPostsFragment extends Fragment {
             throw new RuntimeException(context.toString() + " must implement Delegate");
         }
 
-        viewModel = new ViewModelProvider(this).get(UserPostsViewModel.class);
-    }
+        String listFor = PostsListFragmentArgs.fromBundle(getArguments()).getListFor();
+        if(listFor.equals("User"))
+            viewModel = new ViewModelProvider(this).get(UserPostsViewModel.class);
+        else
+            viewModel = new ViewModelProvider(this).get(FeedListViewModel.class);    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_feed_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_posts_list, container, false);
 
         list = view.findViewById(R.id.feed_list_list);
         list.setHasFixedSize(true);
@@ -68,14 +71,14 @@ public class UserPostsFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         list.setLayoutManager(layoutManager);
 
-        adapter = new UserPostsAdapter();
+        adapter = new PostsListAdapter();
         list.setAdapter(adapter);
 
         adapter.setOnClickListener(new OnItemClickListener() {
             @Override
             public void onClick(int position) {
                 Post post = data.get(position);
-                parent.onItemSelect(post);
+                parent.onItemSelected(post);
             }
         });
 
@@ -123,7 +126,8 @@ public class UserPostsFragment extends Fragment {
 
         TextView postTitle;
         ImageView postImg;
-        TextView username;
+        TextView name;
+        TextView name2;
         CircleImageView userProfilePic;
         ProgressBar progressBar;
         Post post;
@@ -132,7 +136,8 @@ public class UserPostsFragment extends Fragment {
             super(itemView);
             postTitle = itemView.findViewById(R.id.row_post_title_text_view);
             postImg = itemView.findViewById(R.id.row_post_image_view);
-            username = itemView.findViewById(R.id.row_username_text_view);
+            name = itemView.findViewById(R.id.row_name_text_view);
+            name2 = itemView.findViewById(R.id.row_name_text_view2);
             userProfilePic = itemView.findViewById(R.id.row_profile_image_view);
             progressBar = itemView.findViewById(R.id.row_post_progress_bar);
 
@@ -150,15 +155,16 @@ public class UserPostsFragment extends Fragment {
 
         public void bind(Post postToBind){
             postTitle.setText(postToBind.postTitle);
-            username.setText(postToBind.username);
+            name.setText(postToBind.name);
+            name2.setText(postToBind.name);
             post = postToBind;
             if (postToBind.postImgUrl != null && postToBind.userProfileImageUrl != null){
                 Picasso.get().load(postToBind.postImgUrl).noPlaceholder().into(postImg);
                 Picasso.get().load(postToBind.userProfileImageUrl).noPlaceholder().into(userProfilePic);
             }
             else {
-                postImg.setImageResource(R.drawable.profile_pic_placeholder);
-                userProfilePic.setImageResource(R.drawable.profile_pic_placeholder);
+                postImg.setImageResource(R.drawable.profile_placeholder);
+                userProfilePic.setImageResource(R.drawable.profile_placeholder);
             }
         }
     }
@@ -167,7 +173,7 @@ public class UserPostsFragment extends Fragment {
         void onClick(int position);
     }
 
-    class UserPostsAdapter extends RecyclerView.Adapter<PostRowViewHolder>{
+    class PostsListAdapter extends RecyclerView.Adapter<PostRowViewHolder>{
 
         private OnItemClickListener listener;
 

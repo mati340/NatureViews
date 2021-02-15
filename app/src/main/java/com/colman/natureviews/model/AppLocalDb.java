@@ -5,7 +5,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import com.colman.natureviews.NatureViewsApplication;
 
-@Database(entities = {Post.class ,Comment.class}, version = 8)
+@Database(entities = {Post.class ,Comment.class}, version = 11)
 abstract class AppLocalDbRepository extends RoomDatabase {
     public abstract PostDao postDao();
     public abstract CommentDao commentDao();

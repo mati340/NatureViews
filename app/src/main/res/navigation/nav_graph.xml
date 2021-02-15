@@ -7,18 +7,22 @@
 
     <fragment
         android:id="@+id/feedListFragment"
-        android:name="com.colman.natureviews.fragments.FeedListFragment"
+        android:name="com.colman.natureviews.fragments.PostsListFragment"
         android:label="Feed"
-        tools:layout="@layout/fragment_feed_list">
+        tools:layout="@layout/fragment_posts_list" >
         <action
             android:id="@+id/action_feedListFragment_to_postDetailsFragment"
             app:destination="@id/postDetailsFragment" />
+        <argument
+            android:name="listFor"
+            app:argType="string"
+            android:defaultValue="Feed" />
     </fragment>
     <fragment
         android:id="@+id/postDetailsFragment"
         android:name="com.colman.natureviews.fragments.PostDetailsFragment"
         android:label="Post Details"
-        tools:layout="@layout/fragment_post_details">
+        tools:layout="@layout/fragment_post_details" >
         <argument
             android:name="post"
             app:argType="com.colman.natureviews.model.Post" />
@@ -33,11 +37,7 @@
         android:id="@+id/newPostFragment"
         android:name="com.colman.natureviews.fragments.NewPostFragment"
         android:label="fragment_new_post"
-        tools:layout="@layout/fragment_new_post" >
-        <action
-            android:id="@+id/action_newPostFragment_to_postDetailsFragment"
-            app:destination="@id/postDetailsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_new_post" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.colman.natureviews.fragments.ProfileFragment"
@@ -47,8 +47,8 @@
             android:id="@+id/action_profileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
         <action
-            android:id="@+id/action_profileFragment_to_userPostsFragment"
-            app:destination="@id/userPostsFragment" />
+            android:id="@+id/action_profileFragment_to_feedListFragment"
+            app:destination="@id/feedListFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
@@ -72,14 +72,5 @@
         <argument
             android:name="post"
             app:argType="com.colman.natureviews.model.Post" />
-    </fragment>
-    <fragment
-        android:id="@+id/userPostsFragment"
-        android:name="com.colman.natureviews.fragments.UserPostsFragment"
-        android:label="fragment_user_posts"
-        tools:layout="@layout/fragment_user_posts" >
-        <action
-            android:id="@+id/action_userPostsFragment_to_postDetailsFragment"
-            app:destination="@id/postDetailsFragment" />
     </fragment>
 </navigation>

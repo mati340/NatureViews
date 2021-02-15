@@ -10,16 +10,17 @@ import com.colman.natureviews.model.User;
 import java.util.List;
 
 
-public class UserPostsViewModel extends ViewModel {
+public class UserPostsViewModel extends PostsListViewModel {
     LiveData<List<Post>> liveData;
 
-    public LiveData<List<Post>> getData(){
+    @Override
+    public LiveData<List<Post>> getData() {
         if (liveData == null)
             liveData = Model.instance.getAllPostsByUserId(User.getInstance().userId);
-        return liveData;
-    }
+        return liveData;    }
 
-    public void refresh(Model.CompListener listener){
+    @Override
+    public void refresh(Model.CompListener listener) {
         Model.instance.refreshPostsList(listener);
     }
 }

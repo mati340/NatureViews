@@ -28,6 +28,8 @@ import com.squareup.picasso.Picasso;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import de.hdodenhof.circleimageview.CircleImageView;
+import static android.app.Activity.RESULT_OK;
+
 
 
 
@@ -35,7 +37,7 @@ public class EditProfileFragment extends Fragment {
 
     View view;
     CircleImageView profilePicImageView;
-    EditText usernameInput;
+    EditText nameInput;
     EditText infoInput;
     Button saveProfileBtn;
     ImageButton closeBtn;
@@ -55,7 +57,7 @@ public class EditProfileFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
         profilePicImageView = view.findViewById(R.id.edit_profile_fragment_profile_image_view);
-        usernameInput = view.findViewById(R.id.edit_profile_fragment_username_edit_text);
+        nameInput = view.findViewById(R.id.edit_profile_fragment_name_edit_text);
         infoInput = view.findViewById(R.id.edit_profile_fragment_info_edit_text);
         progressBar = view.findViewById(R.id.edit_profile_fragment_progress_bar);
         progressBar.setVisibility(View.INVISIBLE);
@@ -91,17 +93,17 @@ public class EditProfileFragment extends Fragment {
         if (User.getInstance().profileImageUrl != null) {
             Picasso.get().load(User.getInstance().profileImageUrl).noPlaceholder().into(profilePicImageView);
         }
-        usernameInput.setHint(User.getInstance().userUsername);
+        nameInput.setHint(User.getInstance().name);
         infoInput.setHint(User.getInstance().userInfo);
     }
 
     void updateUserProfile() {
-        final String username;
+        final String name;
         final String info;
         progressBar.setVisibility(View.VISIBLE);
-        if (usernameInput.getText().toString() != null && !usernameInput.getText().toString().equals(""))
-            username = usernameInput.getText().toString();
-        else username = User.getInstance().userUsername;
+        if (nameInput.getText().toString() != null && !nameInput.getText().toString().equals(""))
+            name = nameInput.getText().toString();
+        else name = User.getInstance().name;
         if (infoInput.getText().toString() != null && !infoInput.getText().toString().equals(""))
             info = infoInput.getText().toString();
         else info = User.getInstance().userInfo;
@@ -111,7 +113,7 @@ public class EditProfileFragment extends Fragment {
                 @Override
                 public void onSuccess(String url) {
 
-                    Model.instance.updateUserProfile(username, info, url,new Model.Listener<Boolean>() {
+                    Model.instance.updateUserProfile(name, info, url,new Model.Listener<Boolean>() {
                         @Override
                         public void onComplete(Boolean data) {
                             Model.instance.setUserAppData(User.getInstance().userEmail);
@@ -130,7 +132,7 @@ public class EditProfileFragment extends Fragment {
             });
         }
         else {
-            Model.instance.updateUserProfile(username, info, null, new Model.Listener<Boolean>() {
+            Model.instance.updateUserProfile(name, info, null, new Model.Listener<Boolean>() {
                 @Override
                 public void onComplete(Boolean data) {
                     Model.instance.setUserAppData(User.getInstance().userEmail);
@@ -160,7 +162,7 @@ public class EditProfileFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(data.getData() != null && data != null){
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null){
             profileImageUrl = data.getData();
             profilePicImageView.setImageURI(profileImageUrl);
             postImgBitmap = uriToBitmap(profileImageUrl);
