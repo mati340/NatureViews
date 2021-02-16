@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Edit Post"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:background="@color/textBack"
         android:ems="10"
@@ -50,8 +50,8 @@
         android:maxLines="3"
         android:padding="6dp"
         android:singleLine="false"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CDCDCD"
+        android:textColor="@color/white"
+        android:textColorHint="@color/ColorHint"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,18 +74,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_post_fragment_image_view" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_post_fragment_image_view"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/edit_post_fragment_image_view"
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/add_pic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_post_fragment_description_edit_text" />
 

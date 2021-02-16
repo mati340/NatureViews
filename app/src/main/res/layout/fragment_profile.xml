@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#021732"
+    android:background="@color/BlueBackground"
     tools:context=".fragments.ProfileFragment">
 
 
-    <ImageView
+        <ImageView
         android:id="@+id/profile_fragment_background_image_view"
         android:layout_width="411dp"
         android:layout_height="731dp"
@@ -23,19 +29,19 @@
         tools:srcCompat="@drawable/background"
         tools:visibility="visible" />
 
+
     <TextView
         android:id="@+id/profile_fragment_info_text_view"
         android:layout_width="0dp"
         android:layout_height="130dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:alpha="0.8"
         android:background="@color/ProgressBar"
         android:padding="10dp"
         android:text="Info"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/profile_fragment_show_posts_btn"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,18 +62,17 @@
         app:srcCompat="@drawable/profile_placeholder"
         tools:srcCompat="@drawable/profile_placeholder" />
 
-
     <TextView
         android:id="@+id/profile_fragment_name_text_view"
         android:layout_width="284dp"
         android:layout_height="58dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="Full Name"
         android:textColor="@color/white"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,7 +80,7 @@
         android:id="@+id/profile_fragment_email_text_view"
         android:layout_width="287dp"
         android:layout_height="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="Email"
         android:textColor="@color/white"
@@ -88,13 +93,15 @@
         android:id="@+id/profile_fragment_logout_btn"
         android:layout_width="162dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="76dp"
         android:backgroundTint="@android:color/holo_red_dark"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_fragment_show_posts_btn"
+        app:layout_constraintVertical_bias="0.419" />
 
     <ImageButton
         android:id="@+id/profile_fragment_edit_profile_btn"
@@ -112,13 +119,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/BarGreen"
         android:text="Show Posts"
-        app:layout_constraintBottom_toTopOf="@+id/profile_fragment_logout_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_fragment_info_text_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

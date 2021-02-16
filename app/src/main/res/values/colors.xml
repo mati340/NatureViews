@@ -14,4 +14,6 @@
     <color name="ProgressBar">#FF174D5E</color>
     <color name="Menu">#FFB9F6CA</color>
     <color name="buttons">#4F021732</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="ColorHint">#CDCDCD</color>
 </resources>

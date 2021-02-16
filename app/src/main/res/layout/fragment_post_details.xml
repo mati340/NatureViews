@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/BlueBackground"
@@ -65,7 +71,7 @@
             android:layout_marginStart="20dp"
             android:text="name"
             android:background="@color/buttons"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/post_details_fragment_profile_image_view"
             app:layout_constraintStart_toEndOf="@+id/post_details_fragment_profile_image_view"
@@ -100,7 +106,7 @@
         android:singleLine="false"
         android:text="Post Description - Post Description - Post Description"
         android:textAlignment="textStart"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
@@ -140,7 +146,7 @@
             android:singleLine="false"
             android:text="DELETE"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -171,7 +177,7 @@
             android:singleLine="false"
             android:text="EDIT"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -189,9 +195,10 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/markerLightgreen"
         android:text="Comments"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_details_fragment_post_description_text_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

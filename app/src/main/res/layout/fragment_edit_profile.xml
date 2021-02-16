@@ -44,7 +44,7 @@
         android:hint="Full name"
         android:inputType="textCapWords|textNoSuggestions"
         android:textColor="@color/white"
-        android:textColorHint="#CDCDCD"
+        android:textColorHint="@color/ColorHint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_profile_fragment_profile_image_view" />
@@ -54,12 +54,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/BarGreen"
         android:text="Save Changes"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_profile_fragment_info_edit_text" />
 
@@ -77,8 +78,8 @@
         android:hint="Profile info"
         android:inputType="textMultiLine|textNoSuggestions"
         android:padding="6dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CDCDCD"
+        android:textColor="@color/white"
+        android:textColorHint="@color/ColorHint"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,15 +97,15 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/edit_profile_fragment_profile_image_view"
-        android:layout_width="250dp"
-        android:layout_height="224dp"
+        android:layout_width="237dp"
+        android:layout_height="208dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="24dp"
         android:padding="2dp"
         android:src="@drawable/profile_placeholder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintHorizontal_bias="0.611"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/edit_profile_fragment_background_image_view" />
 

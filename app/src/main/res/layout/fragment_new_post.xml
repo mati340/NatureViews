@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/new_post"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="24dp"
         android:background="@color/textBack"
         android:ems="10"
@@ -49,10 +49,11 @@
         android:lines="3"
         android:maxLines="3"
         android:padding="6dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CDCDCD"
+        android:textColor="@color/white"
+        android:textColorHint="@color/ColorHint"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_post_fragment_header_text_view" />
 
@@ -63,16 +64,17 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="80dp"
         android:text="@string/publish_post"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:backgroundTint="@color/BarGreen"
         app:layout_constraintBottom_toBottomOf="@+id/background_image_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_post_fragment_image_view" />
+        app:layout_constraintTop_toBottomOf="@+id/new_post_fragment_image_view"
+        app:layout_constraintVertical_bias="0.213" />
 
     <ImageView
         android:id="@+id/new_post_fragment_image_view"

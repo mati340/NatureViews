@@ -28,15 +28,6 @@ public class Comment implements Serializable {
         lastUpdated = 0;
     }
 
-/*    public Comment(String commentId, String postId, String commentContent, String userId, String userProfileImageUrl, String username) {
-        this.commentId = commentId;
-        this.postId = postId;
-        this.commentContent = commentContent;
-        this.userId = userId;
-        this.userProfileImageUrl = userProfileImageUrl;
-        this.username = username;
-    }*/
-
     @NonNull
     public String getPostId() {
         return postId;
