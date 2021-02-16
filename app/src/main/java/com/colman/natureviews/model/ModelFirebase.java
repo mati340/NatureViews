@@ -129,6 +129,7 @@ public class ModelFirebase {
                         data.put("name", name);
                         data.put("email", email);
                         data.put("info", "I'm New Here !");
+                        data.put("lastUpdated", FieldValue.serverTimestamp());
                         firebaseFirestore.collection("userProfileData").document(email).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
@@ -367,7 +368,7 @@ public class ModelFirebase {
     private static Post factory(Map<String, Object> json){
         Post newPost = new Post();
         newPost.postId = (String) json.get("postId");
-        newPost.postTitle = (String) json.get("postTitle");
+        newPost.postDescription = (String) json.get("postDescription");
         newPost.postImgUrl = (String) json.get("postImgUrl");
         newPost.userId = (String) json.get("userId");
         newPost.userProfileImageUrl = (String) json.get("userProfilePicUrl");
@@ -381,7 +382,7 @@ public class ModelFirebase {
     private static Map<String, Object> toJson(Post post){
         HashMap<String, Object> json = new HashMap<>();
         json.put("postId", post.postId);
-        json.put("postTitle", post.postTitle);
+        json.put("postDescription", post.postDescription);
         json.put("postImgUrl", post.postImgUrl);
         json.put("userId", post.userId);
         json.put("userProfilePicUrl", post.userProfileImageUrl);
@@ -402,6 +403,7 @@ public class ModelFirebase {
         if (profileImgUrl != null)
             json.put("profileImageUrl", profileImgUrl);
         else json.put("profileImageUrl", User.getInstance().profileImageUrl);
+        json.put("lastUpdated", FieldValue.serverTimestamp());
         json.put("email", User.getInstance().userEmail);
 
         db.collection("userProfileData").document(User.getInstance().userEmail).set(json).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -425,6 +427,9 @@ public class ModelFirebase {
                     User.getInstance().userInfo = (String) task.getResult().get("info");
                     User.getInstance().userEmail = email;
                     User.getInstance().userId = firebaseAuth.getUid();
+                    Timestamp ts = (Timestamp)task.getResult().get("lastUpdated");
+                    if (ts != null)
+                        User.getInstance().lastUpdated = ts.getSeconds();
                 }
             }
         });

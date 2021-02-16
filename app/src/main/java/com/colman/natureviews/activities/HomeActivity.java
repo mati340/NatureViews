@@ -21,6 +21,7 @@ public class HomeActivity extends AppCompatActivity implements PostsListFragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home);
 
         navCtrl = Navigation.findNavController(this, R.id.home_nav_host);

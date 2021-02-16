@@ -26,7 +26,7 @@ public class PostDetailsFragment extends Fragment {
 
     Post post;
     View view;
-    TextView postTitle;
+    TextView postDescription;
     TextView name;
     Button comments;
     ImageView postImg;
@@ -46,7 +46,7 @@ public class PostDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_post_details, container, false);
-        postTitle = view.findViewById(R.id.post_details_fragment_post_title_text_view);
+        postDescription = view.findViewById(R.id.post_details_fragment_post_description_text_view);
         name = view.findViewById(R.id.post_details_fragment_name_text_view);
         comments = view.findViewById(R.id.post_details_fragment_comments_btn);
         postImg = view.findViewById(R.id.post_details_fragment_post_image_view);
@@ -54,7 +54,7 @@ public class PostDetailsFragment extends Fragment {
 
         post = PostDetailsFragmentArgs.fromBundle(getArguments()).getPost();
         if (post != null) {
-            postTitle.setText(post.postTitle);
+            postDescription.setText(post.postDescription);
             name.setText(post.name);
             if (post.postImgUrl != null && post.userProfileImageUrl != null){
                 Picasso.get().load(post.postImgUrl).noPlaceholder().into(postImg);

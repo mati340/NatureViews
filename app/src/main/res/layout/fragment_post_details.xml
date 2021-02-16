@@ -87,15 +87,17 @@
 
 
     <TextView
-        android:id="@+id/post_details_fragment_post_title_text_view"
-        android:layout_width="wrap_content"
+        android:id="@+id/post_details_fragment_post_description_text_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/ProgressBar"
-        android:maxLines="3"
-        android:minLines="1"
+        android:lines="5"
+        android:maxLines="5"
         android:padding="10dp"
-        android:singleLine="true"
+        android:singleLine="false"
         android:text="Post Description - Post Description - Post Description"
         android:textAlignment="textStart"
         android:textColor="#FFFFFF"
@@ -110,6 +112,8 @@
         android:layout_width="249dp"
         android:layout_height="94dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_details_fragment_comments_btn">
@@ -127,8 +131,8 @@
 
         <TextView
             android:id="@+id/post_details_fragment_delete_text_view"
-            android:layout_width="71dp"
-            android:layout_height="37dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:maxLines="3"
             android:minLines="1"
@@ -137,13 +141,13 @@
             android:text="DELETE"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="12sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.792"
+            app:layout_constraintHorizontal_bias="0.819"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.789" />
+            app:layout_constraintVertical_bias="0.78" />
 
         <ImageButton
             android:id="@+id/post_details_fragment_edit_btn"
@@ -158,8 +162,8 @@
 
         <TextView
             android:id="@+id/post_details_fragment_edit_text_view"
-            android:layout_width="51dp"
-            android:layout_height="37dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:maxLines="3"
             android:minLines="1"
@@ -168,25 +172,26 @@
             android:text="EDIT"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="12sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.237"
+            app:layout_constraintHorizontal_bias="0.223"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.789" />
+            app:layout_constraintVertical_bias="0.78" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/post_details_fragment_comments_btn"
         android:layout_width="379dp"
         android:layout_height="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/markerLightgreen"
         android:text="Comments"
         android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_details_fragment_post_title_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/post_details_fragment_post_description_text_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

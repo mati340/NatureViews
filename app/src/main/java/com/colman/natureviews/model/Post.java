@@ -12,7 +12,7 @@ public class Post implements Serializable {
     @PrimaryKey
     @NonNull
     public String postId;
-    public String postTitle;
+    public String postDescription;
     public String postImgUrl;
     public String userId;
     public String userProfileImageUrl;
@@ -21,7 +21,7 @@ public class Post implements Serializable {
 
     public Post(){
         postId = "";
-        postTitle = "";
+        postDescription = "";
         postImgUrl = "";
         userId = "";
         userProfileImageUrl = "";
@@ -29,9 +29,9 @@ public class Post implements Serializable {
         lastUpdated = 0;
     }
 
-    public Post(String postId, String postTitle, String postImgUrl, String userId, String userProfilePicUrl, String name){
+    public Post(String postId, String postDescription, String postImgUrl, String userId, String userProfilePicUrl, String name){
         this.postId = postId;
-        this.postTitle = postTitle;
+        this.postDescription = postDescription;
         this.postImgUrl = postImgUrl;
         this.userId = userId;
         this.userProfileImageUrl = userProfilePicUrl;
@@ -47,12 +47,12 @@ public class Post implements Serializable {
         this.postId = postId;
     }
 
-    public String getPostTitle() {
-        return postTitle;
+    public String getPostDescription() {
+        return postDescription;
     }
 
-    public void setPostTitle(String postTitle) {
-        this.postTitle = postTitle;
+    public void setPostDescription(String postDescription) {
+        this.postDescription = postDescription;
     }
 
     public String getPostImgUrl() {

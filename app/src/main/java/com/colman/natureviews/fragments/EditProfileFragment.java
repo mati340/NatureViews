@@ -31,8 +31,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import static android.app.Activity.RESULT_OK;
 
 
-
-
 public class EditProfileFragment extends Fragment {
 
     View view;
@@ -93,8 +91,8 @@ public class EditProfileFragment extends Fragment {
         if (User.getInstance().profileImageUrl != null) {
             Picasso.get().load(User.getInstance().profileImageUrl).noPlaceholder().into(profilePicImageView);
         }
-        nameInput.setHint(User.getInstance().name);
-        infoInput.setHint(User.getInstance().userInfo);
+        nameInput.setText(User.getInstance().name);
+        infoInput.setText(User.getInstance().userInfo);
     }
 
     void updateUserProfile() {

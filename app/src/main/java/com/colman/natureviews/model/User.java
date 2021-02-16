@@ -10,6 +10,7 @@ public class User {
     public String profileImageUrl;
     public String userId;
     public String userInfo;
+    public long lastUpdated;
 
     private User()
     {
@@ -18,6 +19,7 @@ public class User {
         profileImageUrl = null;
         userId = null;
         userInfo = null;
+        lastUpdated = 0;
     }
 
     // static method to create instance of Singleton class
