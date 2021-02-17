@@ -2,7 +2,6 @@ package com.colman.natureviews.model;
 
 import android.content.ContentResolver;
 import android.net.Uri;
-import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -27,7 +26,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
 
 
 public class ModelFirebase {
@@ -293,9 +291,6 @@ public class ModelFirebase {
                     }
                 }
                 listener.onComplete(postsData);
-                if(postsData != null) {
-                    Log.d("TAG", "refresh " + postsData.size());
-                }
             }
         });
     }

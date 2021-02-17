@@ -114,7 +114,7 @@ public class CommentsListFragment extends Fragment {
         alert.setView(editText);
         alert.setPositiveButton("Comment", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                saveComment(editText.getText().toString());
+                saveComment(editText.getText().toString().trim());
                 dialog.dismiss();
             }
         });
@@ -232,7 +232,7 @@ public class CommentsListFragment extends Fragment {
             alert.setView(editText);
             alert.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
-                    editComment(editText.getText().toString());
+                    editComment(editText.getText().toString().trim());
                     dialog.dismiss();
                 }
             });

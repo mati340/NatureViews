@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">NatureViews</string>
-    <string name="main_activity_label">Welcome to NatureViews!</string>
     <string name="publish_post">Publish Post</string>
     <string name="post_details">Post Details</string>
     <string name="post_desc">Post Description</string>

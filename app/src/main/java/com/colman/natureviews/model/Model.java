@@ -4,11 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.util.Log;
 import androidx.lifecycle.LiveData;
 import com.colman.natureviews.NatureViewsApplication;
 import java.util.List;
-
 
 
 public class Model {
@@ -102,7 +100,6 @@ public class Model {
                     @Override
                     protected String doInBackground(String... strings) {
                         for (String id: data){
-                            Log.d("TAG", "deleted id: " + id);
                             AppLocalDb.db.commentDao().deleteByCommentId(id);
                         }
                         return "";
@@ -190,7 +187,6 @@ public class Model {
                     @Override
                     protected String doInBackground(String... strings) {
                         for (String id: data){
-                            Log.d("TAG", "deleted id: " + id);
                             AppLocalDb.db.postDao().deleteByPostId(id);
                         }
                         return "";

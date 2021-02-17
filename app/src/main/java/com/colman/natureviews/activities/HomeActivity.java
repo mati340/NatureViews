@@ -1,6 +1,5 @@
 package com.colman.natureviews.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -11,8 +10,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.colman.natureviews.R;
 import com.colman.natureviews.fragments.PostsListFragment;
 import com.colman.natureviews.model.Post;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity implements PostsListFragment.Delegate {
 

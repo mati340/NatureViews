@@ -44,7 +44,6 @@ public class PostDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_post_details, container, false);
         postDescription = view.findViewById(R.id.post_details_fragment_post_description_text_view);
         name = view.findViewById(R.id.post_details_fragment_name_text_view);

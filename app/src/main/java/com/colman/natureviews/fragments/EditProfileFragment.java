@@ -51,7 +51,6 @@ public class EditProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
         profilePicImageView = view.findViewById(R.id.edit_profile_fragment_profile_image_view);
@@ -100,10 +99,10 @@ public class EditProfileFragment extends Fragment {
         final String info;
         progressBar.setVisibility(View.VISIBLE);
         if (nameInput.getText().toString() != null && !nameInput.getText().toString().equals(""))
-            name = nameInput.getText().toString();
+            name = nameInput.getText().toString().trim();
         else name = User.getInstance().name;
         if (infoInput.getText().toString() != null && !infoInput.getText().toString().equals(""))
-            info = infoInput.getText().toString();
+            info = infoInput.getText().toString().trim();
         else info = User.getInstance().userInfo;
 
         if (profileImageUrl != null){

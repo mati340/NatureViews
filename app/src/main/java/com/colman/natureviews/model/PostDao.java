@@ -19,8 +19,6 @@ public interface PostDao {
     @Query("select * from Post where userId = :userId")
     LiveData<List<Post>> getAllPostsByUserId(String userId);
 
-    //inserting and updating
-    //... is used when we don't know how many arguments will pass..it can be 0 posts, 1 or more...
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAllPosts(Post...posts);
 

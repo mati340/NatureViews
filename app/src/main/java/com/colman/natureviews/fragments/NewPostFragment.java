@@ -49,7 +49,6 @@ public class NewPostFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_new_post, container, false);
 
         progressBar = view.findViewById(R.id.new_post_fragment_progress_bar);
@@ -131,7 +130,7 @@ public class NewPostFragment extends Fragment {
     private Post generateNewPost(){
         Post newPost = new Post();
         newPost.postId = UUID.randomUUID().toString();
-        newPost.postDescription = postDescriptionInput.getText().toString();
+        newPost.postDescription = postDescriptionInput.getText().toString().trim();
         newPost.postImgUrl = null;
         newPost.userId = User.getInstance().userId;
         newPost.userProfileImageUrl = User.getInstance().profileImageUrl;

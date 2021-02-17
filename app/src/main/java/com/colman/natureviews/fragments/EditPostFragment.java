@@ -142,7 +142,7 @@ public class EditPostFragment extends Fragment {
 
         Post editedPost = post;
         if (descriptionInput.getText().toString() != null && !descriptionInput.getText().toString().equals(""))
-            editedPost.postDescription = descriptionInput.getText().toString();
+            editedPost.postDescription = descriptionInput.getText().toString().trim();
         else editedPost.postDescription = post.postDescription;
         if (imageUrl != null)
             editedPost.postImgUrl = imageUrl;

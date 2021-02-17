@@ -10,15 +10,12 @@
         android:roundIcon="@drawable/logo_trans"
         android:supportsRtl="true"
         android:theme="@style/Theme.NatureViews">
-
         <activity android:name=".activities.HomeActivity" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activities.RegisterPageActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activities.LoginPageActivity" android:windowSoftInputMode="adjustPan"/>
-        <activity
-            android:name=".activities.SplashActivity" android:windowSoftInputMode="adjustPan">
+        <activity android:name=".activities.SplashActivity" android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
