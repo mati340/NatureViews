@@ -5,7 +5,7 @@
 <h3>In this project, we created an Android Application as a part of our Full Stack internship in our Computer Science degree studies at the College of Management Academic Studies.<h3><br>
  
 ## Used Technologies
-<h4>Code is writen in Java and server side including DB and Storage is located in cloud service <a href="https://firebase.google.com/?gclid=Cj0KCQjwgtWDBhDZARIsADEKwgP-jSRtBkoJ2bGo4YvVWQMRs_Hn2S822gsJOxtn9401FAieiFJ11KMaApeiEALw_wcB&gclsrc=aw.ds">(FireBase)</a></h4>
+<h4>The code implemented in Java and server side including DB and Storage is located in cloud service <a href="https://firebase.google.com/?gclid=Cj0KCQjwgtWDBhDZARIsADEKwgP-jSRtBkoJ2bGo4YvVWQMRs_Hn2S822gsJOxtn9401FAieiFJ11KMaApeiEALw_wcB&gclsrc=aw.ds">(FireBase)</a></h4>
 <h4>All the data are splited to 2 different databases, Local <a href="https://developer.android.com/training/data-storage/room">(Room)</a> and Real Time <a href="https://firebase.google.com/?gclid=Cj0KCQjwgtWDBhDZARIsADEKwgP-jSRtBkoJ2bGo4YvVWQMRs_Hn2S822gsJOxtn9401FAieiFJ11KMaApeiEALw_wcB&gclsrc=aw.ds">(FireBase)</a> Databases.</h4>
 <h4>The Feed page returns the posts sorted by upload time.</h4><br>
 
@@ -21,7 +21,7 @@ The user can express whether he likes, enjoys or supports an image or recommenda
 This app is for All nature lovers around the world who are interested in receiving and sharing any content related to nature and views.
 
 ## Functionality and Use-case:
-<h3>Registration and Login page</h3>
+<h3>1. Registration and Login page</h3>
 A login page where the user will enter his user information and will be able to connect to the personal profile. If the user is not registered, the login page shows the option to register as a new user. And after entering the details the new user can connect to the profile.
 <br>
 <br>
@@ -31,7 +31,7 @@ A login page where the user will enter his user information and will be able to 
 </div>
 <br>
 
-<h3>A user's profile page</h3>
+<h3>2. A user's profile page</h3>
 That will include the user information and a scrolling list of the content that he previously shared with an edit option.
 <br>
 <br>
@@ -42,7 +42,7 @@ That will include the user information and a scrolling list of the content that 
 <br>
 
   
-<h3>Main Page</h3>
+<h3>3. Main Page</h3>
 Displays recent content published up to older content in a drop-down list configuration.
 The user can leave a comment on posts.
 <br>
@@ -52,7 +52,7 @@ The user can leave a comment on posts.
 </div>
 <br>
   
-<h3>New post & Edit post</h3>
+<h3>4. New post & Edit post</h3>
 here the user can upload a nature view photo with a description of the place and a recommendation for travelers and other nature lovers.
 the user will be able to edit the description and replace the picture of the post that has already been uploaded.
 <br>
@@ -63,6 +63,17 @@ the user will be able to edit the description and replace the picture of the pos
 </div>
 <br>
 
+## How To Use
+ 
+1. Download the project.<br>
+2. Open the project in Android Studio.<br>
+3. Run the application in emulator on every device with Android vesion of 7.1.1 or above (Large display is recommended).
+4. Login with the credentials below:<br>
+Username: david@gmail.com<br>
+Password: 123456<br>
+(The DB got security rules to prevent improper uses)<br>
+5. Enjoy!<br>
+ 
 ## Build With
 <ul>
 <a href="https://developer.android.com/studio"><li>Android Studio(Java)</li><a>
