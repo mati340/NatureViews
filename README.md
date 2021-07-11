@@ -4,7 +4,7 @@
 
 <h3>In this project, we created an Android Application as a part of our Full Stack internship in our Computer Science degree studies at the College of Management Academic Studies.<h3><br>
  
-## Used Technologies
+## Technologies Used
 <h4>The code implemented in Java and server side including DB and Storage is located in cloud service <a href="https://firebase.google.com/?gclid=Cj0KCQjwgtWDBhDZARIsADEKwgP-jSRtBkoJ2bGo4YvVWQMRs_Hn2S822gsJOxtn9401FAieiFJ11KMaApeiEALw_wcB&gclsrc=aw.ds">(FireBase)</a></h4>
 <h4>All the data are splited to 2 different databases, Local <a href="https://developer.android.com/training/data-storage/room">(Room)</a> and Real Time <a href="https://firebase.google.com/?gclid=Cj0KCQjwgtWDBhDZARIsADEKwgP-jSRtBkoJ2bGo4YvVWQMRs_Hn2S822gsJOxtn9401FAieiFJ11KMaApeiEALw_wcB&gclsrc=aw.ds">(FireBase)</a> Databases.</h4>
 <h4>The Feed page returns the posts sorted by upload time.</h4><br>
